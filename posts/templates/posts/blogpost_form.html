@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+        <title>AJouter un article</title>
+    {% endblock %}
+</head>
+<body>
+{% block content %}
+
+        <h1>Ajouter un article</h1>
+            <form method="post">
+                {% csrf_token %}
+                {{ form }}
+                <input type="submit" value="Creer">
+            </form>
+{% endblock %}
+</body>
+</html>

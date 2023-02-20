@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DEtail article</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<a href="{% url 'home' %}">retour a l'acceuil </a>
+<div class="posts-detail">
+    <h4>{{ detail.title }}</h4>
+    <img src="{{ detail.thumbnail.url }}" alt="logo">
+    <p>{{ detail.content }}</p>
+</div>
+
+
+</body>
+</html>

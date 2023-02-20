@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+    <title>list des article</title>
+    {% endblock %}
+</head>
+<body>
+
+
+{% block content %}
+
+{% for list in posts %}
+<article>
+    <div class="posts-title">
+        <h2>{{ list.title }}</h2>
+        {% if request.user.is_authenticated %}
+        <div>
+            <a href="{% url 'update' list.id %}">Editer</a>
+            <a href="{% url 'Delete' list.id %}">Supprimer</a>
+        </div>
+
+    </div>
+    {% endif %}
+    <h5 id="posts-author">publie le {{ list.created_on }} par <i>{{list.author }}</i></h5>
+    <p>{{ list.content }}</p>
+    <form action="{% url 'Detail' list.id %}">
+        <button class="btn btn-submit">Lire l'article</button>
+    </form>
+    <hr>
+</article>
+
+{% endfor %}
+
+{% endblock %}
+
+</body>
+</html>
